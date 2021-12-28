@@ -14,6 +14,7 @@ from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+
 from reviews.models import Category, Comment, Genre, Review, Title, User
 
 from .permissions import AccessToReview, AdminOrSuperUser
@@ -170,8 +171,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))
-        reviews = title.reviews.all()
-        return reviews
+        return title.reviews.all()
 
     def get_permissions(self):
         if self.action == 'create':

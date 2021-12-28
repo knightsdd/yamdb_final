@@ -1,11 +1,14 @@
 import csv
 
 from django.core.management import BaseCommand
-from reviews.models.genre import Genre
+
+from reviews.models.comment import Comment
+from reviews.models.review import Review
+from reviews.models.user import User
 
 
 class Command(BaseCommand):
-    help = 'Load a genre csv file into the database'
+    help = 'Load a comments csv file into the database'
 
     def add_arguments(self, parser):
         parser.add_argument('--path', type=str)
@@ -16,8 +19,12 @@ class Command(BaseCommand):
             reader = csv.reader(f, dialect='excel', delimiter=',')
             next(reader, None)  # skip the header
             for row in reader:
-                Genre.objects.create(
+                review = Review.objects.get(pk=row[1])
+                author = User.objects.get(pk=row[3])
+                Comment.objects.create(
                     id=row[0],
-                    name=row[1],
-                    slug=row[2]
+                    review=review,
+                    text=row[2],
+                    author=author,
+                    pub_date=row[4]
                 )

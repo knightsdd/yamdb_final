@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from reviews.models.category import Category
 from reviews.models.comment import Comment
 from reviews.models.genre import Genre

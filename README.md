@@ -1,3 +1,5 @@
+![yamdb_final](https://github.com/knightsdd/yamdb_final/actions/workflows/Yamdb_workflow/badge.svg)
+
 ### YamDb
 YamDb - api для сервиса поиска и оценки различных произвдений (книг, фильмов, музыки). 
 Функционал предусматривает:

@@ -1,4 +1,5 @@
 from django.db import models
+
 from reviews.models.review import Review
 from reviews.models.user import User
 

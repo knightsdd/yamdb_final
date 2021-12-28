@@ -1,6 +1,7 @@
 import csv
 
 from django.core.management import BaseCommand
+
 from reviews.models.review import Review
 from reviews.models.title import Title
 from reviews.models.user import User

@@ -1,4 +1,5 @@
 from django.db import models
+
 from reviews.models.category import Category
 from reviews.models.genre import Genre
 
