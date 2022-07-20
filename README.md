@@ -33,16 +33,20 @@ DB_PORT=5432
 6. Добавить данные для тестов командой
 ```docker-compose exec -T web python manage.py load_category --path './static/data/category.csv'```
 Список доступных команд для загрузки тестовых данных:
-- ```load_category```
-- ```load_comment```
-- ```load_genre```
-- ```load_review```
-- ```load_title```
-- ```load_user```
+```
+load_user       # файл users.csv
+load_category   # файл category.csv
+load_genre      # файл genre.csv
+load_title      # файлы titles.csv и genre_titles.csv (параметр --path2)
+load_review     # файл review.csv
+load_comment    # файл comments.csv
+
+# файлы располагаются в диреткории ./static/data/
+```
 
 Сервис доступен по локальному адресу http://127.0.0.1
 Админ панель http://127.0.0.1/admin
-Спецификация api http://127.0.0.1/redoc
+Спецификация API http://127.0.0.1/redoc
 
 ### Инструкция для запуска на сервере
 Запуск на сервере осуществляется через workflow GitAction
